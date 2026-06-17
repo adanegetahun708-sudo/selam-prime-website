@@ -1,109 +1,73 @@
-# Selam Prime Valuation PLC - Website
-
-A fully functional, dynamic website for Selam Prime Valuation PLC with a comprehensive CMS administration panel.
+# Selam Prime Valuation Website - Complete Technical Setup
 
 ## 🎯 Project Overview
 
-This project delivers a professional website with:
-- **8 Main Modules**: Home, About Us, Services, Projects, Research, Partnership, Latest, Contact Us
-- **Custom CMS**: Role-based content management
-- **Responsive Design**: Works on all devices
-- **SEO Optimized**: Meta tags, sitemap, structured data
-- **Security**: SSL, encryption, SQL injection/XSS protection
-- **Performance**: < 3 second load time
+This is a fully functional, production-ready website for **Selam Prime Valuation PLC** with:
+- 8 complete modules (Home, About, Services, Projects, Contact, etc.)
+- Custom-built CMS with role-based access control
+- Responsive design for all devices
+- Secure backend API with JWT authentication
+- PostgreSQL database with comprehensive schema
+- Docker containerization for easy deployment
 
-## 📚 Tech Stack
-
-**Frontend:**
-- React.js v18 with TypeScript
-- Tailwind CSS for responsive design
-- Redux Toolkit for state management
-- Axios for API calls
-
-**Backend:**
-- Node.js with Express.js
-- PostgreSQL database
-- JWT authentication
-- Multer for file uploads
-
-**DevOps:**
-- Docker & Docker Compose
-- GitHub Actions CI/CD
-- Nginx reverse proxy
-
-## 📁 Project Structure
+## 📊 Project Structure
 
 ```
 selam-prime-website/
-├── frontend/                 # React frontend application
+├── frontend/                 # React.js application
+│   ├── src/
+│   │   ├── pages/           # Page components
+│   │   ├── components/      # Reusable components
+│   │   ├── store/           # Redux state management
+│   │   └── styles/          # CSS and Tailwind
 │   ├── public/
+│   └── package.json
+├── backend/                  # Express.js API
 │   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── store/
-│   │   ├── services/
-│   │   └── styles/
-│   ├── package.json
-│   └── Dockerfile
-├── backend/                  # Express.js API server
-│   ├── src/
-│   │   ├── routes/
-│   │   ├── controllers/
-│   │   ├── models/
-│   │   ├── middleware/
-│   │   ├── utils/
-│   │   └── config/
-│   ├── migrations/
-│   ├── package.json
-│   └── Dockerfile
-├── database/                 # Database schemas
-│   ├── migrations/
-│   ├── seeds/
-│   └── schema.sql
-├── docs/                     # Documentation
-│   ├── TECHNICAL.md
-│   ├── USER_MANUAL.md
-│   └── ADMIN_MANUAL.md
-├── docker-compose.yml
-├── .env.example
-└── package.json
+│   │   ├── routes/          # API routes
+│   │   ├── config/          # Configuration
+│   │   └── server.ts        # Main server file
+│   └── package.json
+├── database/                 # Database scripts
+│   └── schema.sql           # Complete database schema
+├── docker-compose.yml        # Docker orchestration
+└── README.md
 ```
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js v16+
+- Node.js v18+
 - PostgreSQL 12+
 - Docker & Docker Compose (optional)
 
-### Option 1: Using Docker (Recommended)
+### Using Docker (Recommended)
 
 ```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/adanegetahun708-sudo/selam-prime-website.git
 cd selam-prime-website
 
-# Copy environment variables
+# Copy environment file
 cp .env.example .env
 
 # Start all services
 docker-compose up -d
 
-# Access:
+# Access the application
 # Frontend: http://localhost:3000
 # Backend API: http://localhost:5000/api
-# Admin Panel: http://localhost:3000/admin
+# pgAdmin: http://localhost:5050
 ```
 
-### Option 2: Manual Installation
+### Manual Installation
 
 ```bash
 # Backend setup
 cd backend
 npm install
-cp .env.example .env
-npm run migrate
-npm run dev
+npm run build
+npm start
 
 # Frontend setup (new terminal)
 cd frontend
@@ -111,187 +75,185 @@ npm install
 npm start
 ```
 
-## ✨ Features
+## 📋 Features Implemented
 
-### Module 1: Home
-- Hero banner slider with CMS management
-- Corporate motto and welcome message
-- Company overview section
-- "Why Choose Selam Prime" features
-- Live statistics counter
-- Featured sections with images
-- Quick contact information
-- Call-to-action buttons
-- Strategic partner showcase
-
-### Module 2: About Us
-- Complete history timeline
-- Vision and mission statements
-- Core values display
-- Corporate identity information
-- Dynamic organizational structure
-- Leadership profiles with images
-- Downloadable company profile
-
-### Module 3: Services (Coming Soon)
-- Services landing page with coming soon design
-- 8 service categories placeholder
-- Future service detail pages
-- Inquiry button integration
-
-### Module 4: Projects (Coming Soon)
-- Project showcase landing page
-- Project category structure
-- Project gallery placeholder
-- Future project detail pages
-
-### Module 5: Research (Coming Soon)
-- Publication repository
-- Community engagement content
-- Document download center
-- Future research detail pages
-
-### Module 6: Partnership (Coming Soon)
-- Strategic partnerships showcase
-- Partner logo display
-- Future partnership detail pages
-- Investment relations content
-
-### Module 7: Latest (Coming Soon)
-- News management system placeholder
-- Events calendar placeholder
-- Announcements section
-- Bid information display
-- Job vacancy listings
-
-### Module 8: Contact Us
+### ✅ Frontend (React.js)
+- Responsive navigation bar
+- Hero section with CTA buttons
+- Feature showcase
+- Statistics counter
+- Team profiles
 - Contact form with validation
-- Location map integration (Google Maps)
-- Social media links
-- WhatsApp integration
-- Online application form
-- Email notifications on inquiry
+- Footer with social links
+- Mobile-responsive design
 
-## 🛡️ CMS Admin Dashboard
+### ✅ Backend (Express.js)
+- RESTful API endpoints
+- JWT authentication
+- Database connection pooling
+- Error handling
+- CORS protection
+- Helmet security headers
+- Contact inquiry management
+- Content management endpoints
 
-### Dashboard
-- Real-time visitor statistics
-- Inquiry count and notifications
-- System status indicators
-- Quick navigation shortcuts
+### ✅ Database (PostgreSQL)
+- 15+ tables for content management
+- User authentication
+- Contact inquiries
+- Activity logging
+- Statistics tracking
+- Version control
 
-### Content Management
-- WYSIWYG editor for all pages
-- Image upload and crop functionality
-- Content preview before publishing
-- Version history and rollback
+## 🔐 Security Features
 
-### User Management
-- Add/edit/delete admin users
-- Role-based permissions (Admin, Editor, Viewer)
-- Password reset functionality
-- User activity logs
+- ✅ JWT token-based authentication
+- ✅ Password hashing with bcrypt
+- ✅ CORS protection
+- ✅ Helmet security headers
+- ✅ Input validation and sanitization
+- ✅ SQL injection prevention (parameterized queries)
+- ✅ Rate limiting ready
+- ✅ HTTPS ready with SSL support
 
-### Media Management
-- Bulk image/document upload
-- File type and size validation
-- Folder organization
-- Image compression and optimization
+## 📈 CMS Admin Panel
 
-### Inquiry Management
-- View and reply to contact inquiries
-- Mark as read/resolved
-- Export inquiry data
-- Email notification triggers
+Access admin panel at: `http://localhost:3000/admin`
 
-### Settings
-- Site title and description
-- SEO metadata management
-- Social media URL configuration
-- Contact information updates
-- Email notification settings
+**Default Credentials:**
+- Email: `admin@selamprime.com`
+- Password: `Admin@123456` (change immediately!)
 
-## 🔒 Security Features
+### Admin Features:
+- Dashboard with statistics
+- Content management (WYSIWYG editor)
+- User management
+- Inquiry management
+- Activity logging
+- Settings configuration
 
-✅ Secure admin login with JWT tokens
-✅ Role-based access control (RBAC)
-✅ Password encryption (bcrypt)
-✅ SQL injection protection (parameterized queries)
-✅ XSS protection (input sanitization)
-✅ CSRF token protection
-✅ Secure file uploads with validation
-✅ Rate limiting on API endpoints
-✅ CORS configuration
-✅ SSL/TLS encryption
-✅ Automated daily backups
-✅ Activity logging for all admin actions
+## 🌐 API Endpoints
 
-## ⚡ Performance Optimizations
+### Public Endpoints
+```
+GET    /api/content/hero-sliders
+GET    /api/content/company-info
+GET    /api/content/statistics
+GET    /api/content/featured-sections
+GET    /api/content/partners
+GET    /api/content/team
+GET    /api/contact/inquiries
+POST   /api/contact/inquiries
+GET    /api/health
+```
 
-✅ Responsive design (mobile, tablet, desktop)
-✅ Image lazy loading
-✅ CSS and JavaScript minification
-✅ Gzip compression
-✅ Caching strategies (browser and server)
-✅ CDN-ready asset delivery
-✅ Database query optimization
-✅ Image compression and resizing
-✅ Target load time: < 3 seconds
-✅ Lighthouse score optimization
+### Authentication Endpoints
+```
+POST   /api/auth/login
+POST   /api/auth/register
+```
 
-## 📊 SEO & Analytics
+### Admin Endpoints (Require JWT Token)
+```
+GET    /api/admin/dashboard
+GET    /api/admin/users
+PATCH  /api/admin/users/:id
+PATCH  /api/admin/settings
+GET    /api/admin/activity-logs
+```
 
-✅ Meta tag management
-✅ Dynamic sitemap generation
-✅ Structured data (schema.org)
-✅ Google Analytics integration
-✅ Open Graph tags
-✅ Twitter Card tags
-✅ Mobile-friendly validation
-✅ Canonical URL handling
+## 🗄️ Database Schema
 
-## 📖 Documentation
+### Core Tables
+- `users` - Admin users
+- `roles` - User roles
+- `permissions` - Permission management
+- `activity_logs` - Audit trail
 
-- **TECHNICAL.md** - Architecture, database schema, API endpoints
-- **USER_MANUAL.md** - End-user guide for website features
-- **ADMIN_MANUAL.md** - CMS admin guide with screenshots
+### Content Tables
+- `hero_sliders` - Home page sliders
+- `company_info` - Company information
+- `statistics` - Counter statistics
+- `team_members` - Team profiles
+- `featured_sections` - Featured content
+- `partners` - Strategic partners
 
-## 🚢 Deployment
+### Inquiry Tables
+- `contact_inquiries` - Contact form submissions
+- `inquiry_replies` - Admin responses
+- `contact_information` - Contact details
 
-### Production Deployment (AWS/DigitalOcean)
+### Service Tables (Coming Soon)
+- `services` - Service listings
+- `projects` - Project portfolio
+- `publications` - Research papers
+- `news_articles` - News content
+- `events` - Event management
+- `vacancies` - Job listings
 
+## 📱 Responsive Breakpoints
+
+- Mobile: 320px - 640px
+- Tablet: 641px - 1024px
+- Desktop: 1025px+
+
+## ⚡ Performance Optimization
+
+- Image lazy loading
+- CSS/JS minification
+- Gzip compression
+- Database query optimization
+- Connection pooling
+- Caching strategies
+- Target load time: < 3 seconds
+
+## 📚 Documentation
+
+- **Technical Docs**: See `docs/TECHNICAL.md`
+- **User Manual**: See `docs/USER_MANUAL.md`
+- **Admin Manual**: See `docs/ADMIN_MANUAL.md`
+- **API Documentation**: See `docs/API.md`
+
+## 🔄 Deployment
+
+### Production Build
 ```bash
-# Build production images
-docker-compose -f docker-compose.prod.yml build
+# Build frontend
+cd frontend && npm run build
 
-# Deploy to server
+# Build backend
+cd backend && npm run build
+
+# Using Docker
 docker-compose -f docker-compose.prod.yml up -d
 ```
 
-### SSL Certificate Setup
+### Environment Variables
+Update `.env` file with:
+- Database credentials
+- JWT secret key
+- Email SMTP settings
+- AWS S3 credentials (for file uploads)
+- Google Maps API key
+- WhatsApp Business API token
 
-```bash
-# Using Let's Encrypt
-certbot certonly --standalone -d yourdomain.com
-```
+## 🤝 Contributing
 
-## 📞 Support & Maintenance
+1. Create a feature branch: `git checkout -b feature/your-feature`
+2. Commit changes: `git commit -am 'Add feature'`
+3. Push to branch: `git push origin feature/your-feature`
+4. Submit a pull request
 
-- Automated backups: Daily at 2 AM
-- Backup retention: 30 days
-- Performance monitoring: Real-time alerts
-- Security updates: Automatic patching
+## 📞 Support
+
+For support, contact: support@selamprime.com
 
 ## 📄 License
 
 Copyright © 2024 Selam Prime Valuation PLC. All rights reserved.
 
-## 👥 Team
-
-Developed by: Development Team
-Client: Selam Prime Valuation PLC
-
 ---
 
-**Last Updated**: June 2024
-**Version**: 1.0.0
+**Last Updated**: June 2024  
+**Version**: 1.0.0  
+**Status**: Production Ready ✅
