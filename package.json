@@ -1,0 +1,31 @@
+{
+  "name": "selam-prime-website",
+  "version": "1.0.0",
+  "description": "Selam Prime Valuation PLC - Fully Functional Website with CMS",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "build": "cd frontend && npm run build && cd ../backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "start": "cd backend && npm start",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:build": "docker-compose build",
+    "docker:logs": "docker-compose logs -f",
+    "migrate": "cd backend && npm run migrate",
+    "seed": "cd backend && npm run seed",
+    "lint": "cd frontend && npm run lint && cd ../backend && npm run lint",
+    "test": "cd frontend && npm test && cd ../backend && npm test"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "devDependencies": {},
+  "author": "Selam Prime Valuation PLC",
+  "license": "PROPRIETARY",
+  "private": true
+}
